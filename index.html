@@ -4,21 +4,26 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <img src="pandafinal1.png" alt="" class="bgimg">
     <div class="container">
       <div>
-        <h1 class="header_text">Do you wanna go out with me?</h1>
+        <h1 class="header_text">Bhawarkua Aaun?</h1>
       </div>
       <p>
-        <a href="https://www.instagram.com/untoldcoding/">@untoldcoding</a>
+        <a href="https://t.me/pandu_21">@Pandu_21</a>
       </p>
       <div class="gif_container">
         <img
-          src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif"
+        id="gif"
+          src="please.gif"
           alt="Cute animated illustration"
         />
       </div>
       <div class="buttons">
-        <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+        <button class="btn" id="yesButton" onclick="yes()">Yes</button>
+        <button class="btn" id="telebtn" onclick="telegram()">
+          Let's Fix a Date
+        </button>
         <button
           class="btn"
           id="noButton"
@@ -29,6 +34,31 @@
         </button>
 
         <script>
+       
+          let yes_count=0;
+          let htext =document.querySelector('.header_text');
+          let setbtntop = document.getElementById("yesButton").style.top;
+          let setbtnleft = document.getElementById("yesButton").style.left;
+          function yes(){
+            if (yes_count==0){
+              htext.innerText="Go out with me?";
+              document.getElementById("noButton").style.top = document.getElementById("yesButton").style.top;
+              document.getElementById("noButton").style.left = document.getElementById("yesButton").style.left;
+            }
+            if (yes_count==1){
+              htext.innerText="Yeeyy ! Finally";
+              document.getElementById("telebtn").style.display="block";
+              document.getElementById("yesButton").style.display="none";
+              document.getElementById("noButton").style.display="none";
+              document.getElementById("gif").src="yes.gif";
+            }
+            yes_count=yes_count+1;
+            
+            
+          }
+          function telegram(){
+            document.location.href='https://t.me/pandu_21';
+          }
           function nextPage() {
             window.location.href = "yes.html";
           }
@@ -37,11 +67,11 @@
             var x =
               Math.random() *
               (window.innerWidth -
-                document.getElementById("noButton").offsetWidth);
+                document.getElementById("noButton").offsetWidth-90);
             var y =
               Math.random() *
               (window.innerHeight -
-                document.getElementById("noButton").offsetHeight);
+                document.getElementById("noButton").offsetHeight-70);
             document.getElementById("noButton").style.left = `${x}px`;
             document.getElementById("noButton").style.top = `${y}px`;
           }
